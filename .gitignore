@@ -1,0 +1,12 @@
+# VS Code temp files
+tempCodeRunnerFile.py
+
+# Python cache
+__pycache__/
+
+# compiled python files
+*.pyc
+
+# virtual environments (future use)
+venv/
+.env/
