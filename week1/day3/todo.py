@@ -14,7 +14,7 @@ while True:
 
     elif choice =="2":
         for i,t in enumerate(tasks):
-            print(i+1,t)
+            print("\n",i+1,t)
 
     elif choice == "3":
         delete = int(input("delete task number: "))
