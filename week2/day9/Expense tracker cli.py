@@ -1,5 +1,10 @@
+import json
 expenses = []
-total=0
+try:
+    with open("expenses.json","r") as f:
+        expenses = json.load(f)
+except FileNotFoundError:
+    expenses = []
 while True:
     print("\n1. Add expense")
     print("2. View all expense")
@@ -14,13 +19,16 @@ while True:
             "amount":amount,
             "category":category
         })
-        total = sum(exp["amount"] for exp in expenses)
+        with open("expenses.json", "w") as f:
+            json.dump(expenses, f,indent=4)
+        
 
     elif choice == "2":
-        for exp in expenses:
-            print(exp["category"], "-", exp["amount"])
+        for expense in expenses:
+            print(expense["category"], "-", expense["amount"])
 
     elif choice == "3":
+        total = sum(expense["amount"] for expense in expenses)
         print("Total Spent: ", total)
 
     elif choice == "4":
